@@ -1,0 +1,20 @@
+<div class="card-columns m-5 animated fadeIn">
+  <div
+    [class]="item.type === 'artist' ? 'card cursor-pointer' : 'card'"
+    *ngFor="let item of items"
+    (click)="item.type === 'artist' && showArtist(item)"
+  >
+    <img [src]="item.images | noimage" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title text-success">{{ item.name }}</h5>
+      <p class="card-text" *ngIf="item.artists">
+        <span
+          class="badge badge-pill badge-success cursor-pointer mr-2"
+          *ngFor="let artist of item.artists"
+          (click)="showArtist(artist)"
+          >{{ artist.name }}</span
+        >
+      </p>
+    </div>
+  </div>
+</div>

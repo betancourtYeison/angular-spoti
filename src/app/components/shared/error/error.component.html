@@ -1,0 +1,15 @@
+<app-loading *ngIf="loading"></app-loading>
+<div *ngIf="!loading" class="alert alert-danger animated fadeIn">
+  <h3>Error</h3>
+  <p>{{ errorMessage }}</p>
+  <button
+    class="btn btn-outline-danger"
+    *ngIf="
+      error.error.error.message === 'The access token expired' ||
+      error.error.error.message === 'Invalid access token'
+    "
+    (click)="getToken()"
+  >
+    Solicitar Token
+  </button>
+</div>
